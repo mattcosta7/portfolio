@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :images
   end
 
+  resources :images, only: [:show,:index]
+
   resources :projects
   resources :blogs
 

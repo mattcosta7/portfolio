@@ -8,6 +8,7 @@
       <th>Photo</th>
       <th>Title</th>
       <th>Desc</th>
+      <th>Tags</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= image_tag project.photo.url(:thumb)%></td>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
+        <td><%= project.tag_list %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

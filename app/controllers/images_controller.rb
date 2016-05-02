@@ -6,7 +6,6 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = @album.images
     respond_to do |format|
       format.html
       format.json {render json: @images}
@@ -77,15 +76,22 @@ class ImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
+      redirect_to :back if @image.hidden
     end
 
     def set_album
-      @album = Album.find(params[:album_id])
+      if params[:album_id]
+        @album = Album.find(params[:album_id])
+        redirect_to :back if @album.hidden
+        @images = @album.images.visible
+      else
+        @images = Image.visible
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:title, :tag_list, :photo)
+      params.require(:image).permit(:title, :tag_list, :photo, :hidden)
     end
 
 end

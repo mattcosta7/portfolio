@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   # GET /photographies
   # GET /photographies.json
   def index
-    @albums = Album.all
+    @albums = Album.visible
     respond_to do |format|
       format.html
       format.json {render json: @albums}
@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   # GET /photographies/1
   # GET /photographies/1.json
   def show
-    @images = @album.images
+    @images = @album.images.visible
     respond_to do |format|
       format.html
       format.json {render json: @album}
@@ -75,10 +75,11 @@ class AlbumsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album = Album.find(params[:id])
+      redirect_to :back if @album.hidden
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:name, :location)
+      params.require(:album).permit(:name, :location, :hidden)
     end
 end

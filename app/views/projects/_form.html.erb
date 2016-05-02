@@ -18,7 +18,15 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: "redactor", :rows => 40, :cols => 120  %>
   </div>
+  <div>
+    <%= f.label :tags %>
+    <%= f.text_field :tag_list  %>
+  </div>
   <%= f.file_field :photo %>
+  <div class="field">
+    <%= f.label :hidden %><br>
+    <%= f.check_box :hidden %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

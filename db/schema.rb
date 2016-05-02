@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502014928) do
+ActiveRecord::Schema.define(version: 20160502044748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,21 +19,23 @@ ActiveRecord::Schema.define(version: 20160502014928) do
   create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "hidden",     default: false
   end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "hidden",     default: false
   end
 
   create_table "images", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "url"
     t.string   "photo"
     t.integer  "album_id"
@@ -43,14 +45,16 @@ ActiveRecord::Schema.define(version: 20160502014928) do
     t.string   "iso"
     t.string   "date"
     t.string   "camera_model"
+    t.boolean  "hidden",       default: false
   end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "photo"
+    t.boolean  "hidden",      default: false
   end
 
   create_table "redactor_assets", force: :cascade do |t|

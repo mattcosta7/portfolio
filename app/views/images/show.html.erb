@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 <%=@image.tag_list%>
 <%=image_tag @image.photo.url(:medium)%>
-<%= link_to 'Edit', edit_album_image_path(@album,@image) %> |
-<%= link_to 'Back', album_images_path %>
+<%= link_to 'Edit', edit_album_image_path(@image.album,@image) %> |
+<%= link_to 'Back', album_path(@image.album) %>

@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.visible
     respond_to do |format|
       format.html
       format.json {render json: @projects}
@@ -70,10 +70,11 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+      redirect_to :back if @project.hidde
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :photo)
+      params.require(:project).permit(:title, :description, :photo, :tag_list, :hidden)
     end
 end
