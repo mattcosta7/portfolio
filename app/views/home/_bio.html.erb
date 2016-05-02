@@ -1,3 +1,29 @@
-<div id='bio'>
-  <h2>Bio/About</h2>
+<div id='bio' class='container bio section scrollspy'>
+  <h2>Bio</h2>
+  <div class="row">
+    <div class="col s12 m4">
+      <p>
+        Hi, I’m Matthew and my face is over there (or above if you're on a smaller screen). I'm a developer who really enjoys winding between the frontend and backend, learning new frameworks, and finding solutions to challenging problems without losing focus on the product as a whole.
+      </p>
+      <p>
+        When I'm not coding, I'm often stuffing clothes and cameras into a backpack and filling up my passport book. I've been around the world twice, and have barely put a dent in my destination list. You also might find me nose deep in a book (or my e-reader, if I need to be more mobile...but man, do I miss the feel and smell of pages).
+      </p>
+      <a href="#resume" class="btn waves-effect waves-light blue">Resume</a>
+    </div>
+    <div class="col card s12 m4 polaroid-card hoverable">
+      <div class='card-image'>
+        <%= image_tag '/images/polaroid.png' %>
+        <%= image_tag '/images/face.png', class: 'polaroid-face' %>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="left-align personal-info">
+        <h4 class="center-align about-subtitle">Personal Information</h3>
+        <h5><span class='about-title'>Name :</span> John Doe</h5>
+        <h5><span class='about-title'>Email :</span> matt@mattc.io</h5>
+        <h5><span class='about-title'>Home :</span> Astoria, NYC</h5>
+      </div>
+      <%= render partial: 'home/social_media' %>
+    </div>
+  </div>
 </div>

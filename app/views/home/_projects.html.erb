@@ -1,22 +1,25 @@
-<div id='projects'>
+<div id='projects' class='container projects section scrollspy'>
   <h2>Projects</h2>
-  <ul>
+  <div class="row">
     <% @projects.each_with_index do |project, index| %>
-      <li>
-        <ul>
-          <li>
-            <%=image_tag project.photo.url(:thumb) %>
-          </li>
-          <li>
-            <%= project.title %>
-          </li>
-          <li>
-            <%= project.description.html_safe %>
-          </li>
-        </ul>
-      </li>
-
+        <div class="col s12 m6">
+        <div class='card hoverable' >
+          <div class="card-image waves-effect waves-block waves-light">
+            <%=image_tag project.photo.url(:large) %>
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              <span class='bold'><%= project.title %></span><i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class='card-action'>
+            <p><a href="#"><%=link_to 'live',project.live_url %></a><a href="#"><%=link_to 'source',project.source_code_url %></a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
+            <p class='flow-text'><%= project.description.html_safe %></p>
+          </div>
+        </div>
+      </div>
     <%end%>
-  </ul>
-
+  </div>
 </div>

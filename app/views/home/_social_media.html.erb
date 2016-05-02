@@ -1,0 +1,30 @@
+<div class='social-media'>
+  <ul>
+    <%[{
+      className: "fa fa-github",
+      url: "#"
+    },
+    {
+      className: "fa fa-facebook",
+      url: "#"
+    },
+    {
+      className: "fa fa-linkedin",
+      url: "#"
+    },
+    {
+      className: "fa fa-envelope",
+      url: "#"
+    },
+    {
+      className: "fa fa-instagram",
+      url: "#"
+    }
+  ].each do |soc| %>
+
+    <li>
+      <a href="<%=soc[:url]%>" class="btn-floating waves-effect waves-teal grey lighten-5"><i class="<%=soc[:className]%>"></i></a>
+    </li>
+  <%end%>
+  </ul>
+</div>

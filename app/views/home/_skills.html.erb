@@ -1,0 +1,30 @@
+<div id='skills' class='container skills section scrollspy'>
+  <div class='row'>
+    <h2>Skills</h2>
+    <% skills = [
+      {icon_classes: "fa fa-server",
+        skill_array: ['Ruby','Sinatra','Ruby-on-Rails','Node.js','SQLite3','PostgreSQL','ActiveRecord']
+      },
+      {
+        icon_classes: "fa fa-desktop",
+        skill_array: ["Javascript","React.js","jQuery","AJAX","SCSS","HTML 5","CSS 3","Material Design","Bootstrap","AngularJS"]
+      },
+      {
+        icon_classes: "fa fa-universal-access",
+        skill_array: ["Git","GitHub","Twilio","Google Maps","Vim","Sublime","Photoshop","Capture One"]
+      }
+    ] %>
+    <% skills.each do |skill_type| %>
+      <div class='col s12 m4'>
+        <h3 class='skill-type'><i class="<%=skill_type[:icon_classes]%>"></i></h3>
+        <ul>
+          <%skill_type[:skill_array].each do |skill|%>
+          <li>
+            <span class='skill-name'><%=skill%></span>
+          </li>
+          <%end%>
+        </ul>
+      </div>
+    <%end%>
+  </div>
+</div>
