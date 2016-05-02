@@ -1,0 +1,22 @@
+<div>
+  <h2>Projects</h2>
+  <ul>
+    <% @projects.each_with_index do |project, index| %>
+      <li>
+        <ul>
+          <li>
+            <%=image_tag project.photo.url(:thumb) %>
+          </li>
+          <li>
+            <%= project.title %>
+          </li>
+          <li>
+            <%= project.description %>
+          </li>
+        </ul>
+      </li>
+
+    <%end%>
+  </ul>
+
+</div>

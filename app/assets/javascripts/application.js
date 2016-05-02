@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require redactor-rails
 //= require redactor-rails/plugins
+//= require materialize-sprockets
 //= require_tree .

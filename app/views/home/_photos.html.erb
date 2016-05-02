@@ -1,0 +1,19 @@
+<div>
+  <h2>Photo Albums</h2>
+  <ul>
+    <% @albums.each_with_index do |album, index| %>
+      <div class='album-cover'>
+        <%= image_tag album.images.first.photo.url(:thumb) %>
+        <div>
+          <%= album.name %>
+        </div>
+        <div>
+          <%= album.location %>
+        </div>
+      </div>
+
+
+
+    <%end%>
+
+</div>

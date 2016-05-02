@@ -1,0 +1,19 @@
+<div>
+  <h2>Blogs</h2>
+  <ul>
+    <% @blogs.each_with_index do |blog, index| %>
+      <li>
+        <ul>
+          <li>
+            <%= blog.title %>
+          </li>
+          <li>
+            <%= blog.body %>
+          </li>
+        </ul>
+      </li>
+
+    <%end%>
+  </ul>
+
+</div>

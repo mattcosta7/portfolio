@@ -1,75 +1,8 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
-
-<div>
-  <h2>Bio/About</h2>
-</div>
 
 
-<div>
-  <h2>Projects</h2>
-  <ul>
-    <% @projects.each_with_index do |project, index| %>
-      <li>
-        <ul>
-          <li>
-            <%=image_tag project.photo.url(:thumb) %>
-          </li>
-          <li>
-            <%= project.title %>
-          </li>
-          <li>
-            <%= project.description %>
-          </li>
-        </ul>
-      </li>
 
-    <%end%>
-  </ul>
-
-</div>
-
-
-<div>
-  <h2>Blogs</h2>
-  <ul>
-    <% @blogs.each_with_index do |blog, index| %>
-      <li>
-        <ul>
-          <li>
-            <%= blog.title %>
-          </li>
-          <li>
-            <%= blog.body %>
-          </li>
-        </ul>
-      </li>
-
-    <%end%>
-  </ul>
-
-</div>
-
-
-<div>
-  <h2>Images</h2>
-  <ul>
-    <% @images.each_with_index do |image, index| %>
-      <li>
-        <ul>
-          <li>
-            <%= image.camera_model %>,<%= image.f_stop %>,<%= image.exposure %>,<%= image.focal_length %>,<%= image.iso %>,<%= image.date %>
-          </li>
-          <li>
-            <%= image.title %>
-          </li>
-          <li>
-            <%= image.photo.url(:thumb) %>
-          </li>
-        </ul>
-      </li>
-
-    <%end%>
-  </ul>
-
-</div>
+<%= render partial: 'lander' %>
+<%= render partial: 'bio' %>
+<%= render partial: 'projects' %>
+<%= render partial: 'blog' %>
+<%= render partial: 'photos' %>
