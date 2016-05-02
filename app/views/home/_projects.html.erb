@@ -1,4 +1,4 @@
-<div>
+<div id='projects'>
   <h2>Projects</h2>
   <ul>
     <% @projects.each_with_index do |project, index| %>
@@ -11,7 +11,7 @@
             <%= project.title %>
           </li>
           <li>
-            <%= project.description %>
+            <%= project.description.html_safe %>
           </li>
         </ul>
       </li>
