@@ -51,7 +51,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def tag_image file
-    if self.model == 'image'
+    if self.model.class.to_s == 'Image'
       response = Clarifai::Rails::Detector.new(self.url).image
       self.model.update(tag_list: response.tags.join(','))
     end

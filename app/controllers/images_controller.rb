@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :is_current_user?, except: [:index,:show]
   before_action :set_album
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
@@ -6,11 +7,19 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = @album.images
+    respond_to do |format|
+      format.html
+      format.json {render json: @images}
+    end
   end
 
   # GET /images/1
   # GET /images/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json {render json: @image}
+    end
   end
 
   # GET /images/new
@@ -59,7 +68,7 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to album_images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to album_path(@album), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

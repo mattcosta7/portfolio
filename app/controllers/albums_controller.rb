@@ -1,16 +1,25 @@
 class AlbumsController < ApplicationController
+  before_action :is_current_user?, except: [:index,:show]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /photographies
   # GET /photographies.json
   def index
     @albums = Album.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @albums}
+    end
   end
 
   # GET /photographies/1
   # GET /photographies/1.json
   def show
     @images = @album.images
+    respond_to do |format|
+      format.html
+      format.json {render json: @album}
+    end
   end
 
   # GET /photographies/new

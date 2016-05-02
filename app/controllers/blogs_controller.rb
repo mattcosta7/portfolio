@@ -1,10 +1,15 @@
 class BlogsController < ApplicationController
+  before_action :is_current_user?, except: [:index,:show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @blogs}
+    end
   end
 
   # GET /blogs/1
