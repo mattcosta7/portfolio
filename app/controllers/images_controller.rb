@@ -26,9 +26,10 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = @album.images.new(image_params)
+    exif = EXIFR::JPEG.new(params[:image][:photo].path)
+    @image.update_exif_info(exif) if exif
     respond_to do |format|
       if @image.save
-        #if @image.tag_image
         format.html { redirect_to album_image_path(@album,@image), notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
         #
@@ -77,4 +78,5 @@ class ImagesController < ApplicationController
     def image_params
       params.require(:image).permit(:title, :tag_list, :photo)
     end
+
 end
