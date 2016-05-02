@@ -1,0 +1,25 @@
+<%= form_for(@project, html: { multipart: true } ) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "redactor", :rows => 40, :cols => 120  %>
+  </div>
+  <%= f.file_field :photo %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
