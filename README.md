@@ -12,3 +12,4 @@
 
 - Albums cms, Images in albums.
 - Images automatically tagged on upload
+- Exif Data 
