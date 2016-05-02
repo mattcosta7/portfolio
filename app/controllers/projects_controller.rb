@@ -5,7 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.visible
+    @projects = Project.visible unless current_user
+    @projects = Project.all if current_user
     respond_to do |format|
       format.html
       format.json {render json: @projects}
@@ -70,7 +71,7 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
-      redirect_to :back if @project.hidde
+      redirect_to projects_path if @project.hidden && !current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

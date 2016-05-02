@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <%=render partial: 'images/index'%>
+  <%=render partial: 'images/index', locals: {images: @album.images}%>
 </p>
 
 <%= link_to 'Add Image', new_album_image_path(@album)%>

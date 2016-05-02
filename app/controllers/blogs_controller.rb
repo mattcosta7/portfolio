@@ -5,7 +5,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.visible
+    @blogs = Blog.visible unless current_user
+    @blogs = Blog.all if current_user
     respond_to do |format|
       format.html
       format.json {render json: @blogs}
@@ -70,9 +71,7 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
-      if @blog.hidden
-        redirect_to :back
-      end
+      redirect_to blogs_path if @blog.hidden && !current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

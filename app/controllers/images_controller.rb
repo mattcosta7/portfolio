@@ -76,16 +76,18 @@ class ImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
-      redirect_to :back if @image.hidden
+      redirect_to images_path if @image.hidden && !current_user
     end
 
     def set_album
       if params[:album_id]
         @album = Album.find(params[:album_id])
         redirect_to :back if @album.hidden
-        @images = @album.images.visible
+        @images = @album.images.visible unless current_user
+        @images = @album.images.all if current_user
       else
-        @images = Image.visible
+        @images = Image.visible unless current_user
+        @images = Image.all if current_user
       end
     end
 

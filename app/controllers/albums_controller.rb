@@ -5,7 +5,8 @@ class AlbumsController < ApplicationController
   # GET /photographies
   # GET /photographies.json
   def index
-    @albums = Album.visible
+    @albums = Album.visible unless current_user
+    @albums = Album.all if current_user
     respond_to do |format|
       format.html
       format.json {render json: @albums}
@@ -15,7 +16,8 @@ class AlbumsController < ApplicationController
   # GET /photographies/1
   # GET /photographies/1.json
   def show
-    @images = @album.images.visible
+    @images = @album.images.visible unless current_user
+    @images = @album.images.all if current_user
     respond_to do |format|
       format.html
       format.json {render json: @album}
@@ -35,7 +37,6 @@ class AlbumsController < ApplicationController
   # POST /photographies.json
   def create
     @album = Album.new(album_params)
-
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
@@ -75,7 +76,7 @@ class AlbumsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album = Album.find(params[:id])
-      redirect_to :back if @album.hidden
+      redirect_to albums_path if @album.hidden && !current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

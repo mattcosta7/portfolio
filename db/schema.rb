@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502044748) do
+ActiveRecord::Schema.define(version: 20160502144648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20160502044748) do
     t.string   "url"
     t.string   "photo"
     t.integer  "album_id"
-    t.string   "exposure"
-    t.string   "f_stop"
-    t.string   "focal_length"
-    t.string   "iso"
-    t.string   "date"
-    t.string   "camera_model"
+    t.string   "exposure",     default: "N/A"
+    t.string   "f_stop",       default: "N/A"
+    t.string   "focal_length", default: "N/A"
+    t.string   "iso",          default: "N/A"
+    t.string   "date",         default: "N/A"
+    t.string   "camera_model", default: "N/A"
     t.boolean  "hidden",       default: false
   end
 
