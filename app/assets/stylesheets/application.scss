@@ -10,86 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require redactor-rails
  *= redactor-rails/plugins
  *= require_self
  */
-@import "materialize/components/color";
-$primary-color: color("green", "lighten-2") !default;
-$primary-color-light: false !default;
-$primary-color-dark: false !default;
-@if not $primary-color-light {
- $primary-color-light: lighten($primary-color, 15%);
-}
-@if not $primary-color-dark {
- $primary-color-dark: darken($primary-color, 15%);
-}
-$secondary-color: color("teal", "lighten-1") !default;
-$success-color: color("green", "base") !default;
-$error-color: color("red", "base") !default;
-$link-color: black !default;
-$active-link-color: color("red", "darken-1") !default;
+@import 'colors';
 @import 'materialize';
+@import 'bio';
+@import 'albums';
+@import 'contact';
+@import 'blogs';
+@import 'contact';
+@import 'lander';
+@import 'projects';
+@import 'skills';
 
-body{
-
-}
 .bold{
   font-weight: 400;
 }
-.blog-box{
-  border: 1px black solid;
-}
 
-i{
-  color: black;
-}
 
-.lander{
-  height: 85vh;
-  background-color: $secondary-color;
-  // .lander-box{
-  //   position: relative;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  // }
-  h1{
-    margin: 0;
-  }
-}
-
-.social-media{
-  ul{
-    li{
-      display: inline;
-      i{
-        font-size: 1.5em;
-        color: $link-color;
-        &:hover{
-          color: $active-link-color;
-        }
-      }
-    }
-  }
-}
-
-.polaroid-face{
-  position: absolute !important;
-  width: 75% !important;
-  top: 6% !important;
-  margin: 0 auto !important;
-}
-.polaroid-card{
-  padding: 0 !important;
-}
-
-.personal-info{
-  margin: 0 20px !important;
-  h5{
-    .about-title{
-      display: inline-block !important;
-      min-width: 100px !important;
-    }
-  }
+.wraps{
+  position:relative;
+  top:90vh
 }

@@ -1,12 +1,14 @@
 <%= render partial: 'lander' %>
-<%= render partial: 'bio' %>
-<hr />
-<%= render partial: 'skills' %>
-<hr />
-<%= render partial: 'projects' %>
-<hr />
-<%= render partial: 'blog' %>
-<hr />
-<%= render partial: 'photos' %>
-<hr />
-<%= render partial: 'contact' %>
+<div class='wraps'>
+  <%= render partial: 'bio' %>
+  <div class='divider'></div>
+    <%= render partial: 'skills' %>
+  <div class='divider'></div>
+    <%= render partial: 'projects' unless @projects.length == 0%>
+  <div class='divider'></div>
+    <%= render partial: 'blog' unless @blogs.length == 0%>
+  <div class='divider'></div>
+    <%= render partial: 'photos' unless @albums.length == 0  %>
+  <div class='divider'></div>
+    <%= render partial: 'contact' %>
+</div>

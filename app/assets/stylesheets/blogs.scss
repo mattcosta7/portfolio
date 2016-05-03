@@ -1,0 +1,19 @@
+.blogs{
+  background-color: $primary-color;
+  .row{
+    .blog-box{
+      max-height: 300px !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .blog-text{
+        h3{
+
+        }
+        span{
+
+        }
+      }
+    }
+  }
+}

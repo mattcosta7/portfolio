@@ -1,7 +1,7 @@
-<div id='bio' class='container bio section scrollspy'>
+<div id='bio' class='bio section scrollspy'>
   <h2>Bio</h2>
   <div class="row">
-    <div class="col s12 m4">
+    <div class="col s12 m4 bio-text">
       <p>
         Hi, I’m Matthew and my face is over there (or above if you're on a smaller screen). I'm a developer who really enjoys winding between the frontend and backend, learning new frameworks, and finding solutions to challenging problems without losing focus on the product as a whole.
       </p>
@@ -10,18 +10,18 @@
       </p>
       <a href="#resume" class="btn waves-effect waves-light blue">Resume</a>
     </div>
-    <div class="col card s12 m4 polaroid-card hoverable">
+    <div class="col card s6 m4 polaroid-card hoverable">
       <div class='card-image'>
         <%= image_tag '/images/polaroid.png' %>
         <%= image_tag '/images/face.png', class: 'polaroid-face' %>
       </div>
     </div>
-    <div class="col s12 m4">
+    <div class="col s6 m4 bio-details">
       <div class="left-align personal-info">
-        <h4 class="center-align about-subtitle">Personal Information</h3>
-        <h5><span class='about-title'>Name :</span> John Doe</h5>
-        <h5><span class='about-title'>Email :</span> matt@mattc.io</h5>
-        <h5><span class='about-title'>Home :</span> Astoria, NYC</h5>
+        <h4 class="center-align about-subtitle">Personal Information</h4>
+        <h6><span class='about-title'>Name :</span>Matthew Costabile</h6>
+        <h6><span class='about-title'>Email :</span><%=link_to 'matt@mattc.io', 'mailto:matt@mattc.io'%></h6>
+        <h6><span class='about-title'>Home :</span>Astoria, NYC</h6>
       </div>
       <%= render partial: 'home/social_media' %>
     </div>

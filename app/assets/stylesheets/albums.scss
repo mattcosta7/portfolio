@@ -1,0 +1,25 @@
+.albums{
+  background-color: $background-color;
+  .album-cover{
+    display: inline-block;
+    position: relative;
+    height: 90%;
+    .album-content{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      right:0;
+      top:0;
+      margin: auto;
+      height: 200px;
+      display: none;
+      color: #FFF;
+    }
+    &:hover{
+      opacity: .7;
+      .album-content{
+        display: block;
+      }
+    }
+  }
+}

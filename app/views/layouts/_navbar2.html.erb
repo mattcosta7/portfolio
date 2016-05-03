@@ -1,23 +1,26 @@
-<nav>
-  <ul>
-    <li>
-      <%=link_to "Home", '#home' %>
-    </li>
-    <li>
-      <%=link_to "Blog", "#blogs" %>
-    </li>
-    <li>
-      <%=link_to "Projects", "#projects" %>
-    </li>
-    <li>
-      <%=link_to "Photography", "#albums" %>
-    </li>
-    <li>
-      <% if current_user %>
-        <%=link_to "Logout", logout_path, method: :delete %>
-      <%else%>
-        <%=link_to "Login", login_path %>
-      <%end%>
-    </li>
-  </ul>
-</nav>
+<div class='navbar-fixed'>
+  <nav>
+    <ul>
+      <li>
+        <%=link_to "Home", '#home' %>
+      </li>
+      <li>
+        <%=link_to "Blog", "#blogs" %>
+      </li>
+      <li>
+        <%=link_to "Projects", "#projects" %>
+      </li>
+      <li>
+        <%=link_to "Photography", "#albums" %>
+      </li>
+      <li>
+        <% if current_user %>
+          <%=link_to "Logout", logout_path, method: :delete %>
+        <%else%>
+          <%=link_to "Login", login_path %>
+        <%end%>
+      </li>
+    </ul>
+  </nav>
+
+</div>

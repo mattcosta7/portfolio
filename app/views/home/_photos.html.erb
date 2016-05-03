@@ -1,19 +1,16 @@
-<div id='albums' class='container albums section scrollspy'>
+<div id='albums' class='albums section scrollspy'>
   <h2>Photo Albums</h2>
-  <ul>
     <% @albums.each_with_index do |album, index| %>
-      <div class='album-cover'>
-        <%= image_tag album.images.first.photo.url(:thumb) %>
-        <div>
-          <%= album.name %>
+      <%= link_to album, target: '_blank' do %>
+        <div class='album-cover hoverable waves-effect waves-block waves-teal'>
+          <%= image_tag album.images.first.photo.url(:small) %>
+          <div class='album-content'>
+            <div class='album-content__inner'>
+              <h2 class='a-name'><%= album.name %></h2>
+              <h4 class='a-location'><%= album.location %></h4>
+            </div>
+          </div>
         </div>
-        <div>
-          <%= album.location %>
-        </div>
-      </div>
-
-
-
+      <%end%>
     <%end%>
-
 </div>

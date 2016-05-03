@@ -1,12 +1,17 @@
 <div id='home' class='lander valign-wrapper section scrollspy'>
+  <%=image_tag '/images/background.jpg', class: 'background-image' %>
   <div class='container lander-box'>
-    <h1>Matthew Costabile</h1>
-    <h5>Web Developer, Photographer, Traveler, Bicyclist</h5>
-    <div class='hire-me'>
-      <%= link_to "Hire Me", "#contact", class: 'btn' %>
+    <div class='lander-text'>
+      <h1>Matthew Costabile</h1>
+      <h5>Web Developer, Photographer, Traveler, Bicyclist</h5>
+      <div class='hire-me'>
+        <%= link_to "Hire Me", "#contact", class: 'btn' %>
+      </div>
+      <div>
+        <%= link_to "#bio", class: 'btn-floating waves-effect waves-teal teal lighten-1' do %>
+          <i class='material-icons black'>arrow_drop_down_circle</i>
+        <%end%>
+      </div>
     </div>
-
-
   </div>
-
 </div>

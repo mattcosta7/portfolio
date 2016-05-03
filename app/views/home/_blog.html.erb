@@ -1,11 +1,11 @@
-<div id='blogs' class='container blogs section scrollspy'>
-  <h2>Blogs</h2>
+<div id='blogs' class='blogs section scrollspy'>
+  <h2>Recent Blogs</h2>
   <div class="row">
     <% @blogs.each_with_index do |blog, index| %>
-      <div class="col s12 m4">
-        <div class="card-panel teal">
+      <div class="col s12 m4 blog-box">
+        <div class="card-panel blog-text grey lighten-5">
           <h3><%= blog.title %></h3>
-          <span class="flow-text white-text">
+          <span class='truncate'>
             <%= blog.body.html_safe %>
           </span>
         </div>

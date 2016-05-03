@@ -1,0 +1,47 @@
+.bio{
+  background-color: $background-color;
+  .row{
+    .bio-text{
+      p{
+
+      }
+    }
+    .bio-details{
+      .personal-info{
+        margin: 0 20px;
+        .about-subtitle{
+        }
+        h6{
+          .about-title{
+            display: inline-block;
+            min-width: 55px !important;
+          }
+        }
+      }
+    }
+    .polaroid-card{
+      padding: 0 !important;
+      .polaroid-face{
+        position: absolute !important;
+        width: 75% !important;
+        top: 6% !important;
+        margin: 0 auto !important;
+      }
+    }
+  }
+}
+
+.social-media{
+  ul{
+    li{
+      display: inline;
+      i{
+        font-size: 1.5em;
+        color: $link-color;
+        &:hover{
+          color: $active-link-color;
+        }
+      }
+    }
+  }
+}

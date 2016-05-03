@@ -14,7 +14,7 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <%= f.file_field :photo %>
+  <%= f.file_field :photo, multiple: true %>
   <div class="field">
     <%= f.label :hidden %><br>
     <%= f.check_box :hidden %>

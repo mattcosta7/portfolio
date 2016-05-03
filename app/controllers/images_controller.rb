@@ -33,18 +33,15 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = @album.images.new(image_params)
-    exif = EXIFR::JPEG.new(params[:image][:photo].path)
-    @image.update_exif_info(exif) if exif
+    params[:image][:photo].each_with_index do |image,index|
+      @image = @album.images.new(title: "#{params[:image][:title]}_#{index}",photo: image )
+      exif = EXIFR::JPEG.new(image.path) if image.content_type == 'image/jpeg'
+      @image.update_exif_info(exif) if exif
+      @image.save
+    end
     respond_to do |format|
-      if @image.save
-        format.html { redirect_to album_image_path(@album,@image), notice: 'Image was successfully created.' }
-        format.json { render :show, status: :created, location: @image }
-        #
-      else
-        format.html { render :new }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to album_path(@album), notice: 'Image was successfully created.' }
+      format.json { render :show, status: :created, location: @image }
     end
   end
 
