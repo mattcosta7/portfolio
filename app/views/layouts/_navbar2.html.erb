@@ -1,12 +1,19 @@
 <div class='navbar-fixed'>
-  <nav>
-    <ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
       <li>
         <%=link_to "Home", '#home' %>
       </li>
       <li>
+        <%=link_to "Bio", "#bio" %>
+      </li>
+      <% if @blogs && @blogs.length > 0%>
+      <li>
         <%=link_to "Blog", "#blogs" %>
       </li>
+      <%end%>
       <li>
         <%=link_to "Projects", "#projects" %>
       </li>
@@ -22,6 +29,33 @@
         <%end%>
       </li>
     </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li>
+        <%=link_to "Home", '#home' %>
+      </li>
+      <li>
+        <%=link_to "Bio", "#bio" %>
+      </li>
+      <% if @blogs && @blogs.length > 0%>
+      <li>
+        <%=link_to "Blog", "#blogs" %>
+      </li>
+      <%end%>
+      <li>
+        <%=link_to "Projects", "#projects" %>
+      </li>
+      <li>
+        <%=link_to "Photography", "#albums" %>
+      </li>
+      <li>
+        <%=link_to "Contact", "#contact" %>
+      </li>
+      <li>
+        <% if current_user %>
+          <%=link_to "Logout", logout_path, method: :delete %>
+        <%end%>
+      </li>
+    </ul>
+  </div>
   </nav>
-
 </div>
