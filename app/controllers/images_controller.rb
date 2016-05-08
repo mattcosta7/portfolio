@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :is_current_user?, except: [:index,:show]
+  before_action :is_current_user?
   before_action :set_album
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
