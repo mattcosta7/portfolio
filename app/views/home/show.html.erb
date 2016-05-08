@@ -1,15 +1,22 @@
 <div id='home' class='home scrollspy'></div>
-<%= render partial: 'lander' %>
+<header>
+  <%= render partial: 'lander' %>
+</header>
 <div class='wraps'>
-  <%= render partial: 'bio' %>
-  <div class='divider'></div>
-    <%= render partial: 'skills' %>
-  <div class='divider'></div>
-    <%= render partial: 'projects' unless @projects.length == 0%>
-  <div class='divider'></div>
-    <%= render partial: 'blog' unless @blogs.length == 0%>
-  <div class='divider'></div>
-    <%= render partial: 'photos' unless @albums.length == 0  %>
-  <div class='divider'></div>
+  <main>
+
+
+    <%= render partial: 'bio' %>
+    <div class='divider'></div>
+      <%= render partial: 'skills' %>
+    <div class='divider'></div>
+      <%= render partial: 'projects' unless @projects.length == 0%>
+    <div class='divider'></div>
+      <%= render partial: 'blog' unless @blogs.length == 0%>
+    <div class='divider'></div>
+      <%= render partial: 'photos' unless @albums.length == 0  %>
+    <div class='divider'></div>
     <%= render partial: 'contact' %>
+  </main>
+  <%= render partial: 'layouts/footer'%>
 </div>

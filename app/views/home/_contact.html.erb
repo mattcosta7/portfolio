@@ -11,20 +11,19 @@
       </div>
       <div class='col s6 m6'>
         <%=form_tag email_path, method: :post, remote: true do %>
-
-        <div class="input-field">
-          <%=text_field_tag :name, nil, required: true%>
-          <%=label_tag :name %>
-        </div>
-        <div class="input-field">
-          <%=email_field_tag :email, nil, required: true %>
-          <%=label_tag :email %>
-        </div>
-        <div class="input-field">
-          <%=text_area_tag :message, nil, required: true %>
-          <%=label_tag :message %>
-        </div>
-          <%=submit_tag :submit%>
+          <div class="input-field">
+            <%=text_field_tag :name, nil, required: true%>
+            <%=label_tag :name %>
+          </div>
+          <div class="input-field">
+            <%=email_field_tag :email, nil, required: true %>
+            <%=label_tag :email %>
+          </div>
+          <div class="input-field">
+            <%=text_area_tag :message, nil, required: true %>
+            <%=label_tag :message %>
+          </div>
+            <%=submit_tag :submit%>
         <%end%>
       </div>
     </div>
