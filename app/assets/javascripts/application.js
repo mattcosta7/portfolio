@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require redactor-rails
 //= require redactor-rails/plugins
+//= require isotope
+//= require imagesloaded
 //= require materialize-sprockets
 //= require_tree .

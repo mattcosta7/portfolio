@@ -9,17 +9,17 @@ gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
-gem 'excon'
 gem 'carrierwave'
 gem "fog"
-gem 'clarifai-rails'
 gem 'acts-as-taggable-on'
 gem "mini_magick"
 gem 'meta-tags'
 gem 'redactor-rails'
-gem 'exifr'
 gem 'materialize-sass'
 gem 'font-awesome-sass'
+gem 'isotope-rails'
+gem 'imagesLoaded_rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

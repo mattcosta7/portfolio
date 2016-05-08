@@ -1,6 +1,32 @@
 <div id='contact' class='contact section scrollspy'>
-  <div class='row'
-    <div class='col s12 m12'>
-      Matthew Costabile
+  <div class='container'>
+    <div class='row'>
+      <h2 class='center-align'>Contact</h2>
+      <div class='col s6 m6 left-align'>
+        <h3>Matthew Costabile</h3>
+        <p>
+          Astoria, NY 11103<br/>
+          <a href='mailto:matt@mattc.io'>matt@mattc.io</a>
+        </p>
+      </div>
+      <div class='col s6 m6'>
+        <%=form_tag '/email-me', method: :post do %>
+
+        <div class="input-field">
+          <%=text_field_tag :name, nil, required: true%>
+          <%=label_tag :name %>
+        </div>
+        <div class="input-field">
+          <%=text_field_tag :email, nil, required: true %>
+          <%=label_tag :email %>
+        </div>
+        <div class="input-field">
+          <%=text_area_tag :message, nil, required: true %>
+          <%=label_tag :message %>
+        </div>
+          <%=submit_tag :submit, class: 'btn'%>
+        <%end%>
+      </div>
     </div>
+  </div>
 </div>
