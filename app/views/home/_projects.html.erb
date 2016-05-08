@@ -1,8 +1,8 @@
 <div id='projects' class='projects section scrollspy'>
   <h2>Projects</h2>
-  <div class="row">
+  <div class="row projects-grid">
     <% @projects.each_with_index do |project, index| %>
-        <div class="col s12 m6">
+        <div class="col s12 m6 project-grid-item">
         <div class='card hoverable' >
           <div class="card-image waves-effect waves-block waves-light">
             <%=image_tag project.photo.url(:large) %>
