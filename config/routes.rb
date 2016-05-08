@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
-
+  post '/email-me' => 'home#email', as: :email
   delete '/logout' => 'sessions#destroy', as: :logout
 
   resources :albums do
