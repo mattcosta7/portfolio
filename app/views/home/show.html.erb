@@ -4,9 +4,7 @@
 </header>
 <div class='wraps'>
   <main>
-
-
-    <%= render partial: 'bio' %>
+      <%= render partial: 'bio' %>
     <div class='divider'></div>
       <%= render partial: 'skills' %>
     <div class='divider'></div>
@@ -14,9 +12,66 @@
     <div class='divider'></div>
       <%= render partial: 'blog' unless @blogs.length == 0%>
     <div class='divider'></div>
-      <%= render partial: 'photos' unless @albums.length == 0  %>
+      <div id='photos_go_here' class='row'>
+      </div>
+      </div>
+      <%#= render partial: 'photos' unless @albums.length == 0  %>
     <div class='divider'></div>
-    <%= render partial: 'contact' %>
+      <%= render partial: 'contact' %>
   </main>
-  <%= render partial: 'layouts/footer'%>
+  <%#= render partial: 'layouts/footer'%>
 </div>
+
+
+<script>
+<% for i in 0...@albums.length %>
+  $.ajax({
+    method: 'get',
+    url:"https://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=<%=ENV['FLICKR_KEY']%>&photoset_id=<%=@albums[i][:photoset_id]%>&format=json",
+    dataType: 'jsonp',
+    success: function(data) {
+
+    }
+  });
+  function jsonFlickrApi(rsp){
+    stuff = rsp
+  	if (rsp.stat != "ok"){
+  		return;
+  	}
+    outer_div = document.createElement('div');
+    outer_div.className='col m4 s12';
+    card = document.createElement('div')
+    card.className = 'card';
+    cardImage = document.createElement('div')
+    cardImage.className = 'card-image';
+    outer_div.appendChild(card);
+    card.appendChild(cardImage);
+    photo_holder = document.getElementById('photos_go_here');
+    var slider = document.createElement('div');
+    var big_txt = document.createTextNode(rsp.photoset.title);
+    slider.className='slider';
+    outer_div.appendChild(card);
+    cardImage.appendChild(slider);
+    slider.appendChild(big_txt);
+    var slides = document.createElement('ul')
+    slides.className='slides';
+    slider.appendChild(slides);
+    photo_holder.appendChild(outer_div)
+  	for (var i=0; i<rsp.photoset.photo.length; i++){
+  		var photo = rsp.photoset.photo[i];
+  		var li = document.createElement('li');
+  		var txt = document.createTextNode(rsp.photoset.title);
+      var h3 = document.createElement('h3')
+      h3.className='caption center-align'
+      h3.appendChild(txt)
+      var img_src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "b.jpg";
+      var img = document.createElement('img')
+      img.src=img_src;
+      li.appendChild(img)
+  		li.appendChild(h3);
+  		slides.appendChild(li);
+  	}
+    $('.slider').slider({height: 'auto',interval: 60000});
+  }
+<%end%>
+</script>
