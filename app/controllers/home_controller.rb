@@ -23,6 +23,7 @@ class HomeController < ApplicationController
     @projects = Project.visible.last(5)
     @albums = [
       {
+        arr: 1,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157667442125290",
         photoset_id: '72157667442125290',
         title: "Faces",
@@ -30,13 +31,15 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 2,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125510',
         photoset_id: '72157667442125510',
         title: "Argentina",
         src: "https://farm8.staticflickr.com/7449/26272477563_7827d701bf_c.jpg",
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
-      },
+       },
       {
+        arr: 3,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125500',
         photoset_id: '72157667442125500',
         title: "Brazil",
@@ -44,6 +47,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 4,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125470',
         photoset_id: '72157667442125470',
         title: "Cambodia",
@@ -51,6 +55,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 5,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125440',
         photoset_id: '72157667442125440',
         title: "Czech Republic",
@@ -58,6 +63,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 6,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125430',
         photoset_id: '72157667442125430',
         title: "France",
@@ -65,6 +71,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 7,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157668097815245",
         photoset_id: '72157668097815245',
         title: "Italy",
@@ -72,6 +79,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 8,
         href: 'https://www.flickr.com/photos/matthewcostabile/albums/72157667442125370',
         photoset_id: '72157667442125370',
         title: "Malaysia",
@@ -79,6 +87,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 9,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157667442125350",
         photoset_id: '72157667442125350',
         title: "New York",
@@ -86,6 +95,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 10,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157667442125340",
         photoset_id: '72157667442125340',
         title: "Spain",
@@ -93,6 +103,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 11,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157667442125330",
         photoset_id: '72157667442125330',
         title: "Switzerland",
@@ -100,6 +111,7 @@ class HomeController < ApplicationController
         data_sizes: "{'240':'6d00fae88c_m','320':'6d00fae88c_n','500':'6d00fae88c','640':'6d00fae88c_z','800':'6d00fae88c_c','1024':'6d00fae88c_b','1600':'6d00fae88c_h','2000':'6d00fae88c_o'}"
       },
       {
+        arr: 12,
         href: "https://www.flickr.com/photos/matthewcostabile/albums/72157667442125320",
         photoset_id: '72157667442125320',
         title: "Vietnam",
