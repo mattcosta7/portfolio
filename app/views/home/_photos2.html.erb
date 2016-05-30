@@ -20,8 +20,10 @@
   	if (rsp.stat != "ok"){
   		return;
   	}
+    a = document.createElement('a');
+    a.href = '/albums/'+rsp.photoset.title;
     outer_div = document.createElement('div');
-    outer_div.className='col m4 s12 hoverable card';
+    outer_div.className='col l3 m6 s12 hoverable card';
     photo_holder = document.getElementById('photos_go_here');
     var slider = document.createElement('div');
     slider.className='slider card-image';
@@ -36,7 +38,8 @@
     slides.className='slides';
     slides.style.backgroundColor = ''
     slider.appendChild(slides);
-    photo_holder.appendChild(outer_div)
+    a.appendChild(outer_div);
+    photo_holder.appendChild(a);
   	for (var i=0; i<rsp.photoset.photo.length; i++){
   		var photo = rsp.photoset.photo[i];
   		var li = document.createElement('li');
@@ -48,6 +51,6 @@
   		// li.appendChild(h3);
   		slides.appendChild(li);
   	}
-    $('.slider').slider({height: 200, interval: 6000, indicators: false});
+    $('.slider').slider({interval: 6000, indicators: false});
   }
 </script>

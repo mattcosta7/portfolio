@@ -2,24 +2,26 @@
   <h2>Projects</h2>
   <div class="row projects-grid">
     <% @projects.each_with_index do |project, index| %>
-        <div class="col s12 m6 project-grid-item">
-        <div class='card hoverable' >
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag project.photo.url(:large) %>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
-              <span class='bold'><%= project.title %></span><i class="material-icons right">more_vert</i></span>
-          </div>
-          <div class='card-action'>
-            <p><a href="#"><%=link_to 'live',project.live_url %></a><a href="#"><%=link_to 'source',project.source_code_url %></a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
-            <p class='flow-text'><%= project.description.html_safe %></p>
+        <%=link_to project.live_url, target: '_blank' do %>
+          <div class="col s12 m6 project-grid-item">
+          <div class='card hoverable' >
+            <div class="card-image waves-effect waves-block waves-light">
+              <%=image_tag project.photo.url(:large) %>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                <span class='bold'><%= project.title %></span><i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class='card-action'>
+              <p><a href="#"><%=link_to 'live',project.live_url %></a><a href="#"><%=link_to 'source',project.source_code_url %></a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
+              <p class='flow-text'><%= project.description.html_safe %></p>
+            </div>
           </div>
         </div>
-      </div>
+      <%end%>
     <%end%>
   </div>
 </div>
