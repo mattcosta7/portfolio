@@ -1,5 +1,5 @@
 <div id='albums' class='albums section scrollspy'>
-  <h2>Photo Albums</h2>
+  <h2><%=@title%></h2>
   <div id='photos_go_here' class='row'>
   </div>
 </div>
@@ -39,7 +39,7 @@
       photo_holder.appendChild(outer_div);
   		var photo = rsp.photoset.photo[i];
   		var li = document.createElement('li');
-      var img_src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "b.jpg";
+      var img_src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "h.jpg";
       var img = document.createElement('img')
       img.src=img_src;
       li.appendChild(img)
