@@ -17,4 +17,5 @@
 //= require isotope
 //= require imagesloaded
 //= require materialize-sprockets
+//= require ga
 //= require_tree .

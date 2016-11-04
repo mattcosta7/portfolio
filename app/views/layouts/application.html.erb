@@ -3,7 +3,6 @@
 <head>
   <title>Matthew Costabile | Developer | Portfolio</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -16,6 +15,7 @@
   <div class='center'>
     <%= yield %>
   </div>
-
+  <%= Gon::Base.render_data %>
+  <%= javascript_include_tag 'application'%>
 </body>
 </html>

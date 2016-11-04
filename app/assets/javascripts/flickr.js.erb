@@ -1,0 +1,87 @@
+//albums
+var albums = gon.albums;
+for(var i = 0; i < albums.length; i++){
+  $.ajax({
+    method: 'get',
+    url:"https://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key="+"<%= ENV["FLICKR_KEY"] %>"+"&photoset_id="+albums[i].photoset_id+"&format=json",
+    dataType: 'jsonp'
+  });
+}
+
+function jsonFlickrApi(rsp){
+  if (rsp.stat != "ok"){
+    return;
+  }
+  if(gon.albums.length === 1){
+    createSingleAlbum(rsp.photoset)
+    $('.slider').slider({interval: false, indicators: false});
+    $('.materialboxed').materialbox();
+  }
+
+  else{
+    createAlbums(rsp.photoset)
+    $('.slider').slider({interval: 6000, indicators: false});
+  }
+}
+
+function createAlbums(photoset){
+  a = document.createElement('a');
+  a.href = '/albums/'+photoset.title;
+  outer_div = document.createElement('div');
+  outer_div.className='col l3 m6 s12 hoverable card';
+  photo_holder = document.getElementById('photos_go_here');
+  var slider = document.createElement('div');
+  slider.className='slider card-image';
+  outer_div.appendChild(slider);
+  var title = document.createElement('div');
+  var titleText = document.createElement('h6');
+  titleText.innerHTML = photoset.title;
+  title.className = 'card-content';
+  title.appendChild(titleText);
+  outer_div.appendChild(title);
+  var slides = document.createElement('ul');
+  slides.className='slides';
+  slides.style.backgroundColor = '';
+  slider.appendChild(slides);
+  a.appendChild(outer_div);
+  photo_holder.appendChild(a);
+  for (var i=0; i<photoset.photo.length; i++){
+    var photo = photoset.photo[i];
+    var li = document.createElement('li');
+    var img_src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "b.jpg";
+    var img = document.createElement('img');
+    img.src=img_src;
+    li.appendChild(img)
+    slides.appendChild(li);
+  }
+}
+
+function createSingleAlbum(photoset){
+  for (var i=0; i<photoset.photo.length; i++){
+    outer_div = document.createElement('div');
+    outer_div.className='col l3 m6 s12 hoverable card';
+    photo_holder = document.getElementById('photos_go_here');
+    var slider = document.createElement('div');
+    slider.className='slider card-image';
+    outer_div.appendChild(slider);
+    var title = document.createElement('div');
+    var titleText = document.createElement('h6')
+    titleText.innerHTML = photoset.photo[i].title;
+    title.className = 'card-content';
+    title.appendChild(titleText);
+    outer_div.appendChild(title);
+    var slides = document.createElement('ul')
+    slides.className='slides materialboxed';
+    slides.style.backgroundColor = '';
+    slides.setAttribute("data-caption", photoset.photo[i].title);
+    slider.appendChild(slides);
+    photo_holder.appendChild(outer_div);
+    var photo = photoset.photo[i];
+    var li = document.createElement('li');
+    var img_src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "h.jpg";
+    var img = document.createElement('img')
+    img.src=img_src;
+    li.appendChild(img)
+    slides.appendChild(li);
+  }
+}

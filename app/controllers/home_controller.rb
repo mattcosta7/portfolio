@@ -22,6 +22,7 @@ class HomeController < ApplicationController
   def show
     @projects = Project.visible.last(5)
     @albums = Album.getAlbums
+    gon.albums = @albums
     @blogs = Blog.visible.last(5)
   end
 end
